@@ -54,4 +54,4 @@ async function myFn(): Promise<void> {
 void myFn();
 ```
 
-You can also provide a height if you want to generate an rainbow gradient that isn't a square, although this may end up with more of one colour depending on whether the generated image is wider/taller.
+You can also provide a height if you want to generate an rainbow gradient that isn't a square.

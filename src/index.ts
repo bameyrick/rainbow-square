@@ -11,7 +11,11 @@ export function rainbowSquare(width: number, height?: number): Promise<string> {
 
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   return new Promise(async resolve => {
-    const image = new SimpleImage(width, height !== undefined ? height : width);
+    height = height !== undefined ? height : width;
+
+    const size = Math.max(width, height, 256);
+
+    const image = new SimpleImage(size, size);
 
     await image.ready;
 
@@ -21,6 +25,10 @@ export function rainbowSquare(width: number, height?: number): Promise<string> {
       pixel.red = 255 - pixel.x;
       pixel.green = 255 - pixel.y;
       pixel.blue = pixel.x;
+    }
+
+    if (width !== size || height !== size) {
+      image.setSize(width, height);
     }
 
     resolve(image.toDataURL());

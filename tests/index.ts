@@ -10,13 +10,17 @@ describe('raibow-square', () => {
   });
 
   it('Should create a square', async () => {
-    const result = await rainbowSquare(256);
+    const result = await rainbowSquare(100);
 
     expect(result).toEqual(jasmine.any(String));
+
+    const result2 = await rainbowSquare(256);
+
+    expect(result2).toEqual(jasmine.any(String));
   });
 
   it('Should create a rectangle', async () => {
-    const result = await rainbowSquare(256, 512);
+    const result = await rainbowSquare(400, 200);
 
     expect(result).toEqual(jasmine.any(String));
   });
